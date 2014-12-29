@@ -18,8 +18,9 @@ CMD="cd <%= @app_root %>/current; <%= "rvm #{@rvm_ruby_string} do" if @rvm_ruby_
 AS_USER=<%= @user %>
 set -u
 
+# debug -> <%= @environment_file %>
 <% if @environment_file %>
-. "<%= @environment_file %>"
+.  <%= @environment_file %>
 <% end %>
 
 OLD_PIN="$PID.oldbin"

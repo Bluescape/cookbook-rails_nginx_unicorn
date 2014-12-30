@@ -36,7 +36,7 @@ run () {
   if [ "$(id -un)" = "$AS_USER" ]; then
     eval $1
   else
-    sudo -Eu $AS_USER "$1"
+    eval sudo -Eu $AS_USER $1
   fi
 }
 

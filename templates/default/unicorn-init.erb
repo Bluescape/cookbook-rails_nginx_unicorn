@@ -36,7 +36,7 @@ run () {
   if [ "$(id -un)" = "$AS_USER" ]; then
     eval $1
   else
-    su -p -c "$1" - $AS_USER
+    sudo -Eu $AS_USER "$1"
   fi
 }
 

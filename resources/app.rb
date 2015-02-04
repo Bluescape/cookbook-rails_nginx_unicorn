@@ -22,3 +22,4 @@ attribute :ssl_certificate_key_path, :kind_of => String, :default => '/usr/local
 attribute :include_forwarding_headers, :default => true
 attribute :force_ssl_proto, :default => false
 attribute :unicorn_rails_bin, :required => false, :kind_of => String, :default => nil
+attribute :environment_file, :required => false, :kind_of => String

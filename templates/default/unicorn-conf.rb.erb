@@ -3,6 +3,10 @@ pid "<%= @app_root %>/shared/pids/unicorn.pid"
 stderr_path "<%= @app_root %>/shared/log/unicorn.log"
 stdout_path "<%= @app_root %>/shared/log/unicorn.log"
 
+<%= if @unicorn_rails_bin %>
+Unicorn::HttpServer::START_CTX[0] = "<%= @unicorn_rails_bin %>"
+<%= end %>
+
 listen "/tmp/unicorn.<%= @name %>.sock", :backlog => 64
 worker_processes 2
 timeout 30

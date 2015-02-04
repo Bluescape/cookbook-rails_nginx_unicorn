@@ -21,3 +21,4 @@ attribute :ssl_certificate_key_path, :kind_of => String, :default => '/usr/local
 attribute :ssl_certificate_key_path, :kind_of => String, :default => '/usr/local/nginx/conf/cert.key'
 attribute :include_forwarding_headers, :default => true
 attribute :force_ssl_proto, :default => false
+attribute :unicorn_rails_bin, :required => false, :kind_of => String, :default => nil

@@ -4,6 +4,8 @@ stderr_path "<%= @app_root %>/shared/log/unicorn.log"
 stdout_path "<%= @app_root %>/shared/log/unicorn.log"
 
 <% if @unicorn_rails_bin %>
+# please see: https://gist.github.com/re5et/bc9d8e5847b5fd697d15
+# and http://unicorn.bogomips.org/Unicorn/HttpServer.html
 Unicorn::HttpServer::START_CTX[0] = "<%= @unicorn_rails_bin %>"
 <% end %>
 

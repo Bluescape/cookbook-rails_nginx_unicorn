@@ -19,7 +19,8 @@ action :create do
     :ssl_certificate_key_path => new_resource.ssl_certificate_key_path,
     :include_forwarding_headers => new_resource.include_forwarding_headers,
     :unicorn_rails_bin => new_resource.unicorn_rails_bin,
-    :environment_file => new_resource.environment_file
+    :environment_file => new_resource.environment_file,
+    :unicorn_workers_count => new_resource.unicorn_workers_count
   }
 
   directory common[:app_root] do

@@ -9,8 +9,8 @@ stdout_path "<%= @app_root %>/shared/log/unicorn.log"
 Unicorn::HttpServer::START_CTX[0] = "<%= @unicorn_rails_bin %>"
 <% end %>
 
-listen "/tmp/unicorn.<%= @name %>.sock", :backlog => 64
-worker_processes 2
+listen "/tmp/unicorn.<%= @name %>.sock", :backlog => <%= @unicorn_backlog_count %>
+worker_processes <%= @unicorn_workers_count %>
 timeout 30
 
 preload_app true

@@ -24,3 +24,4 @@ attribute :force_ssl_proto, :default => false
 attribute :unicorn_rails_bin, :required => false, :kind_of => String, :default => nil
 attribute :environment_file, :required => false, :kind_of => String
 attribute :unicorn_workers_count, :required => false, :kind_of => Integer, :default => 2
+attribute :unicorn_backlog_count, :required => false, :kind_of => Integer, :default => 64

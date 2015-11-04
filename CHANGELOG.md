@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of rails-nginx-unicorn.
 
+## 0.1.2
+
+* Added the ability to configure the forwarded protocol in nginx
+
 ## 0.1.1
 
 * Added the ability to configure the number of unicorn processes and backlog

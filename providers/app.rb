@@ -14,6 +14,7 @@ action :create do
     :rails_env => new_resource.rails_env,
     :force_ssl => new_resource.force_ssl,
     :force_ssl_proto => new_resource.force_ssl_proto,
+    :forwarded_protocol => new_resource.forwarded_protocol,
     :ssl => new_resource.ssl,
     :ssl_certificate_path => new_resource.ssl_certificate_path,
     :ssl_certificate_key_path => new_resource.ssl_certificate_key_path,

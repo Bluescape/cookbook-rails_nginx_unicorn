@@ -11,7 +11,7 @@ Unicorn::HttpServer::START_CTX[0] = "<%= @unicorn_rails_bin %>"
 
 listen "/tmp/unicorn.<%= @name %>.sock", :backlog => <%= @unicorn_backlog_count %>
 worker_processes <%= @unicorn_workers_count %>
-timeout 30
+timeout 60
 
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) and

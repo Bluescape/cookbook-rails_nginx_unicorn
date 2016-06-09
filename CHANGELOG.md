@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of rails-nginx-unicorn.
 
+## 0.1.3
+
+* Updating the timeout for a slow page
+
 ## 0.1.2
 
 * Added the ability to configure the forwarded protocol in nginx

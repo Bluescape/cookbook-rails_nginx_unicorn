@@ -25,15 +25,17 @@ server {
     error_log   <%= @app_root %>/shared/log/error.log;
 
     if (-f $document_root/system/maintenance.html) {
-      return 503;
+      return 555;
     }
 
-    error_page 503 @maintenance;
+    error_page 555 =503 @maintenance;
     location @maintenance {
       rewrite  ^(.*)$  /system/maintenance.html last;
       break;
     }
 
+    error_page  500 502 503 504 /500;
+    error_page  404 /404;
 
     location / {
       <% if @include_forwarding_headers %>
@@ -55,17 +57,6 @@ server {
          break;
        }
      }
-
-    error_page  500 502 503 504 /500.html;
-    error_page  404 /404.html;
-
-    location = /500.html {
-      root  <%= @app_root %>/current/public;
-    }
-
-    location = /400.html {
-      root  <%= @app_root %>/current/public;
-    }
 
     <% if @asset_location && @asset_root %>
     location ^~ <%= @asset_location %> {
@@ -93,14 +84,17 @@ server {
   error_log   <%= @app_root %>/shared/log/error.log;
 
   if (-f $document_root/system/maintenance.html) {
-    return 503;
+    return 555;
   }
 
-  error_page 503 @maintenance;
+  error_page 555 =503 @maintenance;
   location @maintenance {
     rewrite  ^(.*)$  /system/maintenance.html last;
     break;
   }
+
+  error_page  500 502 503 504 /500;
+  error_page  404 /404;
 
   location / {
     proxy_set_header  X-Forwarded-Proto $scheme;
@@ -118,17 +112,6 @@ server {
        break;
      }
    }
-
-  error_page  500 502 503 504 /500.html;
-  error_page  404 /404.html;
-
-  location = /500.html {
-    root  <%= @app_root %>/current/public;
-  }
-
-  location = /400.html {
-    root  <%= @app_root %>/current/public;
-  }
 
   <% if @asset_location && @asset_root %>
   location ^~ <%= @asset_location %> {

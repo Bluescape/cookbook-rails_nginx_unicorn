@@ -25,10 +25,10 @@ server {
     error_log   <%= @app_root %>/shared/log/error.log;
 
     if (-f $document_root/system/maintenance.html) {
-      return 503;
+      return 555;
     }
 
-    error_page 503 @maintenance;
+    error_page 555 =503 @maintenance;
     location @maintenance {
       rewrite  ^(.*)$  /system/maintenance.html last;
       break;
@@ -93,10 +93,10 @@ server {
   error_log   <%= @app_root %>/shared/log/error.log;
 
   if (-f $document_root/system/maintenance.html) {
-    return 503;
+    return 555;
   }
 
-  error_page 503 @maintenance;
+  error_page 555 =503 @maintenance;
   location @maintenance {
     rewrite  ^(.*)$  /system/maintenance.html last;
     break;

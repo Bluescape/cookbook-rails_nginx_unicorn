@@ -34,6 +34,8 @@ server {
       break;
     }
 
+    error_page  500 502 503 504 /500;
+    error_page  404 /404;
 
     location / {
       <% if @include_forwarding_headers %>
@@ -55,17 +57,6 @@ server {
          break;
        }
      }
-
-    error_page  500 502 503 504 /500.html;
-    error_page  404 /404.html;
-
-    location = /500.html {
-      root  <%= @app_root %>/current/public;
-    }
-
-    location = /400.html {
-      root  <%= @app_root %>/current/public;
-    }
 
     <% if @asset_location && @asset_root %>
     location ^~ <%= @asset_location %> {
@@ -102,6 +93,9 @@ server {
     break;
   }
 
+  error_page  500 502 503 504 /500;
+  error_page  404 /404;
+
   location / {
     proxy_set_header  X-Forwarded-Proto $scheme;
     proxy_set_header  X-Real-IP  $remote_addr;
@@ -118,17 +112,6 @@ server {
        break;
      }
    }
-
-  error_page  500 502 503 504 /500.html;
-  error_page  404 /404.html;
-
-  location = /500.html {
-    root  <%= @app_root %>/current/public;
-  }
-
-  location = /400.html {
-    root  <%= @app_root %>/current/public;
-  }
 
   <% if @asset_location && @asset_root %>
   location ^~ <%= @asset_location %> {
